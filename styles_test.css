@@ -211,7 +211,7 @@ h3 {
 .loom {
     height: 150px;
     width: 150px;
-    background-color: var(--black-900);
+    background: url(./other/loom-preview.png) no-repeat center / contain;
     border-radius: 100px;
     display: flex;
     justify-content: center;
@@ -221,7 +221,7 @@ h3 {
     transition: all 0.5s ease; 
 }
 .loom:hover {
-    background-color: var(--black-800);
+    background: url(./other/loom-preview-hover.png) no-repeat center / contain;
     cursor: pointer;
 }
 .loom:active {
