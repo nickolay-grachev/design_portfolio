@@ -139,8 +139,8 @@ h3 {
     justify-content: center;
     width: fit-content;
     height: fit-content;
-    transition: all 10s ease;
     cursor: pointer;
+    transition: border-radius 10s ease, background-color 0.5s ease;
     background-color: var(--black-900);
     user-select: none;        /* запрещает выделение текста */
     -webkit-user-select: none; /* для Safari */
@@ -218,7 +218,7 @@ h3 {
     align-items: center;
     padding-left: 10px;
     box-sizing: border-box;
-    transition: 10s ease; 
+    transition: all 0.5s ease; 
 }
 .loom:hover {
     background-color: var(--black-800);
