@@ -449,6 +449,44 @@ h3 {
     grid-row: 2;
     align-self: end;
 }
+
+.case-card-large {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+    border-radius: 15px;
+    padding: 20px;
+    height: 180px;
+    overflow: hidden;
+}
+.card-text-large-accent {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    font-weight: 500;
+}
+.card-text-large {
+    grid-column: 1 / 3;
+    grid-row: 2;
+}
+.case-card-large > img {
+    width: 12px;
+    height: 12px;
+    align-self: end;
+    justify-self: end;
+    grid-column: 2;
+    grid-row: 3;
+}
+.card-large-special-text {
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    font-family: "TT Interphases Pro Mono Trl";
+    grid-column: 1;
+    grid-row: 3;
+    align-self: end;
+}
+
 .case-card-color-one {
     background-color: #E5F4F5;
 }
