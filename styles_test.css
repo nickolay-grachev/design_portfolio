@@ -140,7 +140,7 @@ h3 {
     width: fit-content;
     height: fit-content;
     cursor: pointer;
-    transition: border-radius 10s ease, background-color 0.5s ease;
+    transition: border-radius 20s ease, background-color 0.5s ease;
     background-color: var(--black-900);
     user-select: none;        /* запрещает выделение текста */
     -webkit-user-select: none; /* для Safari */
@@ -155,11 +155,10 @@ h3 {
     background-color: var(--black-700);
 }
 .btn-large {
-    border-radius: 16px;
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 2px;
-    height: 60px;
+    height: 55px;
     box-sizing: border-box;
     gap: 10px;
 }
@@ -168,10 +167,9 @@ h3 {
     height: 24px;
 }
 .btn-regular {
-    border-radius: 14px;
     padding-left: 20px;
     padding-right: 20px;
-    height: 50px;
+    height: 45px;
     gap: 8px;
 }
 .btn-regular > img {
@@ -238,6 +236,8 @@ h3 {
 .hero > img {
     grid-column: 1;
     grid-row: 1;
+    height: 55px;
+    width: 55px;
 }
 .hero > h1 {
     grid-column: 1 / 4;
@@ -256,7 +256,7 @@ h3 {
 .works {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
 }
 .works > div {
     display: flex;
@@ -288,11 +288,10 @@ h3 {
     grid-row: 3;
     justify-self: start;
     align-self: end;
-
+    display: none;
 }
 .works-pic {
     width: 50%;
-    border-radius: 20px;
     overflow: hidden;
     transition: all 0.5s ease;
 }
@@ -423,7 +422,6 @@ h3 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    border-radius: 15px;
     padding: 20px;
     height: 140px;
     overflow: hidden;
@@ -455,9 +453,8 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 8px;
-    border-radius: 15px;
     padding: 20px;
-    height: 180px;
+    height: 210px;
     overflow: hidden;
 }
 .card-text-large-accent {
