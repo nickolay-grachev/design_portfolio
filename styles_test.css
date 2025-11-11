@@ -140,7 +140,7 @@ h3 {
     width: fit-content;
     height: fit-content;
     cursor: pointer;
-    transition: border-radius 20s ease, background-color 0.5s ease;
+    transition: border-radius 12s ease, background-color 0.5s ease;
     background-color: var(--black-900);
     user-select: none;        /* запрещает выделение текста */
     -webkit-user-select: none; /* для Safari */
@@ -292,15 +292,25 @@ h3 {
 .works-pic {
     width: 50%;
     overflow: hidden;
-    transition: all 0.5s ease;
+    transition: border-radius 10s ease;
 }
 .works-pic > img {
     width: 100%;
     height: auto;
     display: block;
 }
+.works-pic-static {
+    width: 50%;
+    overflow: hidden;
+    transition: border-radius 10s ease;
+}
+.works-pic-static > img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 .works-pic:hover {
-    transform: scale(1.02);
+    border-radius: 100px;
     cursor: pointer;
 }
 
@@ -627,7 +637,6 @@ h3 {
   .works-pic {
     order: -1;
     width: 100%;
-    border-radius: 10px;
   }
   .footer {
     grid-template-columns: repeat(3, 1fr);
