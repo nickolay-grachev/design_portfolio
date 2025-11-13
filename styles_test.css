@@ -537,21 +537,26 @@ h3 {
     }
     .works-text {
         width: 100%;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
+        order: 2;
+        grid-template-columns: auto;
+        grid-template-rows: 1fr auto;
     }
     .works-caption {
         grid-column: 1;
         grid-row: 1;
     }
     .works-btn {
-        grid-column: 2;
-        grid-row: 1;
-        align-self: end;
-        justify-self: end;
+        grid-row: 2;
+        align-self: start;
+        justify-self: start;
     }
     .works-pic {
         width: 100%;
+        order: 1;
+    }
+    .works-pic-static {
+        width: 100%;
+        order: 1;
     }
     .works-dot {
         display: none;
@@ -637,6 +642,10 @@ h3 {
   .works-pic {
     order: -1;
     width: 100%;
+  }
+  .works-pic-static {
+    order: -1;
+    width: 100%;      
   }
   .footer {
     grid-template-columns: repeat(3, 1fr);
