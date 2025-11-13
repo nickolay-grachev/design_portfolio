@@ -588,16 +588,16 @@ h3 {
     height: 90vh;
     grid-template-rows: auto 1fr;
   }
-  .hero > h1 {
-    grid-column: 1 / 5;
-  }
   .container {
     gap: 80px;
   }
+  .hero > h1 {
+    grid-column: 1 / 6;
+  }
   .loom {
+    display: none;
     width: 110px;
     height: 110px;
-    grid-column: 5 / 7;
   }
   .works {
     gap: 40px;
