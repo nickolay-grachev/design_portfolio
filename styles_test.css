@@ -61,7 +61,7 @@ body {
 }
 :root {
   --black-900: #000000;
-  --black-800: #1F1F1F;
+  --black-800: #292929;
   --black-700: #3D3D3D;
   --green: #B2D1CA;
   --white: #F4FFF6;
@@ -140,7 +140,7 @@ h3 {
     width: fit-content;
     height: fit-content;
     cursor: pointer;
-    transition: border-radius 12s ease, background-color 0.5s ease;
+    transition: border-radius 0.5s ease, background-color 0.5s ease;
     background-color: var(--black-900);
     user-select: none;        /* запрещает выделение текста */
     -webkit-user-select: none; /* для Safari */
@@ -149,7 +149,7 @@ h3 {
 }
 .btn:hover {
     background-color: var(--black-800);
-    border-radius: 100px;
+    border-radius: 15px;
 }
 .btn:active {
     background-color: var(--black-700);
@@ -292,7 +292,7 @@ h3 {
 .works-pic {
     width: 50%;
     overflow: hidden;
-    transition: border-radius 10s ease;
+    transition: border-radius 0.5s ease, transform 0.85s ease;
 }
 .works-pic > img {
     width: 100%;
@@ -302,7 +302,6 @@ h3 {
 .works-pic-static {
     width: 50%;
     overflow: hidden;
-    transition: border-radius 10s ease;
 }
 .works-pic-static > img {
     width: 100%;
@@ -310,7 +309,8 @@ h3 {
     display: block;
 }
 .works-pic:hover {
-    border-radius: 100px;
+    border-radius: 20px;
+    transform: scale(1.02);
     cursor: pointer;
 }
 
