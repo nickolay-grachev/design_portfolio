@@ -8,6 +8,19 @@
     <title>Case 2</title>
   </head>
   <body class="body-case">
+    <div class="case-navigation">
+        <ul class="body-small">
+          <li><a href="#1">Контекст и проблема</a></li>
+          <li><a href="#2">Цель</a></li>
+          <li><a href="#3">Главные метрики</a></li>
+          <li><a href="#4">Процесс</a></li>
+          <li><a href="#5">Какие проблемы у пользователей?</a></li>
+          <li><a href="#6">Проблемы в продукте</a></li>
+          <li><a href="#7">Что можно улучшить?</a></li>
+          <li><a href="#8">Решение</a></li>
+          <li><a href="#9">Результат</a></li>
+        </ul>
+      </div>
     <div class="case-header">
       <div class="btn btn-large" onclick="window.location.href='./index.html'">
         <img src="icns/arrow-left.svg">
@@ -26,7 +39,7 @@
       <div class="case-pic">
         <img src="case/case2.1.avif">
       </div>
-      <div class="case-block">
+      <div class="case-block" id="1">
         <h3>Контекст</h3>
         <p class="body-large">Я работал над Simla – это CRM-система для Латинской Америки, с фокусом на all-in-one чаты. Позиционирует себя как единная платформа для управления бизнесом. Помимо чатов, в Simla есть управление заказами, ведение базы клиентов, маркетинговые инструменты, интеграция с CMS, детальная аналитика по ключевым бизнес метрикам.</p>
       </div>
@@ -34,19 +47,19 @@
         <h3>Проблема</h3>
         <p class="body-large">CR из регистраций в платных пользователей составляет всего 0.7%, это сильно ниже бенчмарков для CRM-систем (3-5%). Пользователи регистрируются, но быстро покидают платформу.</p>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="2">
         <h3>Цель</h3>
         <p class="body-large-accent">Увеличить конверсию из регистраций в звонок с sale-менеджером → И далее увеличить процент покупок платного тарифа.</p>
         <p class="body-large">Основной KPI: Рост числа платных пользователей после обновления онбординга. Помимо дизайна, на это влияет работа маркетинга и sale-менеджера. Пока не будем прогнозировать конкретный рост конверсии: продукт выходит на новый рынок, нет исторических данных и мы плохо понимаем поведение пользователей. В перспективе мы будем снижать зависимость продаж от sale-менеджера.</p>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="3">
         <h3>Главные метрики</h3>
         <ul class="body-large">
           <li>CR из лидов в звонки с sales-менеджерами</li>
           <li>CR из лидов в самостоятельные покупки (без менеджера)</li>
         </ul>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="4">
         <h3>Процесс</h3>
         <ol class="body-large">
           <li>Обсуждение с командой – какие проблемы у пользователей, что можно с этим сделать</li>
@@ -56,7 +69,7 @@
           <li>Ретроспектива – с командой провели рефлекисию и определили следующие шаги.</li>
         </ol>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="5">
         <h3>Какие проблемы у пользователей?</h3>
         <div class="case-block-cards">
           <div class="case-card case-card-color-one">
@@ -106,7 +119,7 @@
           </div>
         </div>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="6">
         <h3>Проблемы в продукте</h3>
         <div class="case-block-cards">
           <div class="case-card case-card-color-three">
@@ -166,7 +179,7 @@
           </div>
         </div>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="7">
         <h3>Что можно улучшить?</h3>
         <div class="case-block-cards">
           <div class="case-card case-card-color-two">
@@ -219,7 +232,7 @@
           <img src="case/case2.2.5.avif">
         </div>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="8">
         <h3>Решение</h3>
         <p class="body-large">Сначала обновляем экраны, которые идут сразу после регистрации. Часть пользователей прерывает работу на этом этапе, поскольку загрузка системы занимает около 30-45 секунд. Те, кто дожидается окончания загрузки, попадают на главный экран, где происходит отток большинства пользователей. Думаю, глядя на эти экраны ⬇️, вы сами поймёте почему так происходило.</p>
         <div class="case-pic">
@@ -276,7 +289,7 @@
           <img src="case/case2.11.avif">
         </div>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="9">
         <h3>Результат</h3>
         <p class="body-large">В 1.5 раза выросла конверсия из лидов в оплату — с 0.7% до 1.2%. Это всё ещё ниже бенчмарков, но это устойчивый показатель.</p>
         <p class="body-large">Бронирование звонков с sales-менеджерами  увеличилось в 2.7 раз! Есть повод повлиять на работу sale-менеджеров, потому что тут есть потенциал роста.</p>
@@ -300,5 +313,57 @@
         <img src="icns/arrow-right.svg">
       </div>
     </div>
+    <script>
+      const element = document.querySelector('.case-navigation');
+      const triggerPoint = 400; // Когда проскроллили 200px
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > triggerPoint) {
+            element.classList.add('active');
+        } else {
+            element.classList.remove('active');
+        }
+    });
+
+    // Scroll spy functionality
+    const sections = document.querySelectorAll('.case-block[id]');
+    const navLinks = document.querySelectorAll('.case-navigation a');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: [0, 0.25, 0.5, 0.75, 1]
+    };
+
+    let activeSection = null;
+
+    const observer = new IntersectionObserver((entries) => {
+      let maxRatio = 0;
+      let mostVisibleSection = null;
+
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+          maxRatio = entry.intersectionRatio;
+          mostVisibleSection = entry.target;
+        }
+      });
+
+      if (mostVisibleSection && mostVisibleSection !== activeSection) {
+        activeSection = mostVisibleSection;
+        const id = mostVisibleSection.getAttribute('id');
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    }, observerOptions);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+    </script>
   </body>
 </html>

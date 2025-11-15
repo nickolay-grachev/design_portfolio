@@ -8,6 +8,17 @@
     <title>Case 3</title>
   </head>
   <body class="body-case">
+    <div class="case-navigation">
+        <ul class="body-small">
+          <li><a href="#1">Цель задачи</a></li>
+          <li><a href="#2">Какая польза для бизнеса</a></li>
+          <li><a href="#3">Процесс</a></li>
+          <li><a href="#4">Проблемы</a></li>
+          <li><a href="#5">Что важно для пользователей?</a></li>
+          <li><a href="#6">Решение</a></li>
+          <li><a href="#7">Результат</a></li>
+        </ul>
+      </div>
     <div class="case-header">
       <div class="btn btn-large" onclick="window.location.href='./index.html'">
         <img src="icns/arrow-left.svg">
@@ -30,7 +41,7 @@
           <img src="case/case3.1.avif">
         </div>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="1">
         <h3>Цель задачи</h3>
         <p class="body-large">Увеличить долю клиентов, подключивших Чаты в первые 2 месяца после регистрации в CRM — с 30% до 60%.</p>
         <div style="display: flex; flex-direction: column; gap: 0px;">
@@ -43,7 +54,7 @@
           </ol>
         </div>  
       </div>
-      <div class="case-block">
+      <div class="case-block" id="2">
         <h3>Какая польза для бизнеса?</h3>
         <ol class="body-large">
           <li>Рост доходов компании и увеличение среднего чека</li>
@@ -51,7 +62,7 @@
           <li>Больше пользователей → больше обратной связи → больше качественных решений</li>
         </ol>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="3">
         <h3>Процесс</h3>
         <ol class="body-large">
           <li>Узнаём по каким причинам пользователи долго подключают Чаты</li>
@@ -61,8 +72,8 @@
           <li>Ждём несколько месяцев и смотрим на метрики</li>
         </ol>
       </div>
-      <div class="case-block">
-        <h3>Причины долгого подключения</h3>
+      <div class="case-block" id="4">
+        <h3>Проблемы</h3>
         <div class="case-block-cards">
           <div class="case-card case-card-color-three">
             <p class="body-regular card-text">Большинство пользователей — наёмные сотрудники, не мотивированные искать новые функции</p>
@@ -95,19 +106,19 @@
             <img src="other/light-dot.svg">
           </div>
           <div class="case-card case-card-color-three">
-            <p class="body-regular card-text">Пользователи без прав администратора видят неактивные разделы и не понимают, почему</p>
+            <p class="body-regular card-text">Пользователи без прав администратора видят неактивные разделы и не понимают</p>
             <p class="card-special-text card-special-text-color-three">07</p>
             <img src="other/light-dot.svg">
           </div>
           <div class="case-card case-card-color-three">
-            <p class="body-regular card-text">Нет внешних триггеров (email, уведомлений), которые напоминали бы владельцу о подключении сервиса</p>
+            <p class="body-regular card-text">Нет уведомлений, которые напоминали бы владельцу о подключении сервиса</p>
             <p class="card-special-text card-special-text-color-three">08</p>
             <img src="other/light-dot.svg">
           </div>
         </div>
       </div>
-      <div class="case-block">
-        <h3>Что важно для пользователей</h3>
+      <div class="case-block" id="5">
+        <h3>Что важно для пользователей?</h3>
         <div class="case-block-cards">
           <div class="case-card case-card-color-one">
             <p class="body-regular card-text">Быстро отвечать клиентам, обработать как можно больше диалогов</p>
@@ -151,7 +162,7 @@
           </div>
         </div>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="6">
         <h3>Решение</h3>
         <p class="body-large">Чтобы достичь цели, мы повышаем заметность модуля «Чаты» и предлагаем пользователям ознакомиться с ними в наиболее подходящий момент.</p>
         <p class="body-large-accent">Какие меры мы приняли:</p>
@@ -224,7 +235,7 @@
           <img src="case/case3.6.avif">
         </div>
       </div>
-      <div class="case-block">
+      <div class="case-block" id="7">
         <h3>Результат</h3>
         <p class="body-large-accent">Пользователи стали активнее подключать Чаты, за первые 2 месяца этот показатель повысился с 30% до 53%.</p>
         <p class="body-large">Среднее время между регистрацией в CRM и подключением «Чатов» сократилось с 6 месяцев до 3 недель. Это значит, что новые клиенты быстрее получат ценность от продукта.</p>
@@ -248,5 +259,57 @@
         <img src="icns/arrow-right.svg">
       </div>
     </div>
+    <script>
+      const element = document.querySelector('.case-navigation');
+      const triggerPoint = 400; // Когда проскроллили 200px
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > triggerPoint) {
+            element.classList.add('active');
+        } else {
+            element.classList.remove('active');
+        }
+    });
+
+    // Scroll spy functionality
+    const sections = document.querySelectorAll('.case-block[id]');
+    const navLinks = document.querySelectorAll('.case-navigation a');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: [0, 0.25, 0.5, 0.75, 1]
+    };
+
+    let activeSection = null;
+
+    const observer = new IntersectionObserver((entries) => {
+      let maxRatio = 0;
+      let mostVisibleSection = null;
+
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+          maxRatio = entry.intersectionRatio;
+          mostVisibleSection = entry.target;
+        }
+      });
+
+      if (mostVisibleSection && mostVisibleSection !== activeSection) {
+        activeSection = mostVisibleSection;
+        const id = mostVisibleSection.getAttribute('id');
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    }, observerOptions);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+    </script>
   </body>
 </html>

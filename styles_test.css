@@ -1,8 +1,11 @@
 body {
-  margin: auto;
-  background-color: var(--white);
-  overflow-x: hidden;
-  color: var(--black-900);
+    margin: auto;
+    background-color: var(--white);
+    overflow-x: hidden;
+    color: var(--black-900);
+}
+html {
+    scroll-behavior: smooth;
 }
 @font-face {
     font-family: 'TT Interphases Pro Mono Trl';
@@ -65,6 +68,7 @@ body {
   --black-700: #3D3D3D;
   --green: #B2D1CA;
   --white: #F4FFF6;
+  --blue: #3F45F2;
 }
 .text-white {
     color: var(--white);
@@ -87,6 +91,11 @@ p {
 }
 a {
     text-decoration: none;
+    color: var(--black-900);
+}
+a:hover {
+    color: var(--blue);
+
 }
 h1 {
     margin: 0;
@@ -133,6 +142,13 @@ h3 {
     line-height: 1.5;
     font-weight: 400;
 }
+.body-small {
+    font-family: "TT Interphases Pro Mono Trl";
+    font-size: 14px;
+    letter-spacing: 0px;
+    line-height: 1.5;
+    font-weight: 400;
+}
 .btn {
     display: flex;
     align-items: center;
@@ -169,7 +185,7 @@ h3 {
 .btn-regular {
     padding-left: 20px;
     padding-right: 20px;
-    height: 45px;
+    height: 50px;
     gap: 8px;
 }
 .btn-regular > img {
@@ -522,9 +538,44 @@ h3 {
     gap: 8px;
     margin-top: 160px;
 }
-
+.case-navigation {
+    top: 100px;
+    width: fit-content;
+    position: fixed;
+    opacity: 0;
+    transition: all 0.7s ease-in;
+    cursor: default;
+}
+.case-navigation.active {
+    opacity: 1;
+    cursor: pointer;
+}
+.case-navigation > ul {
+    list-style-type: none;
+    padding: 0;
+}
+.case-navigation > ul > li {
+    height: 28px;
+    transition: color 0.5s ease;
+}
+.case-navigation > ul > li:hover {
+    color: var(--blue);
+}
+.case-navigation > ul > li > a.active {
+    color: var(--blue);
+}
 
 /*media*/
+@media (min-width: 1180px) and (max-width: 1400px) {
+    .case-container {
+        margin-left: 200px;
+    }
+}
+@media (max-width: 1180px) {
+    .case-navigation {
+        display: none;
+    }
+}
 @media (min-width: 920px) and (max-width: 1280px) {
     .hero > h1 {
         grid-column: 1 / 5;
