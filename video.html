@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles_test.css">
+    <link rel="icon" type="image/svg+xml" href="./other/logo.svg">
+    <script src="https://t.contentsquare.net/uxa/26d087a979984.js"></script>
+    <title>Case 3</title>
+  </head>
+  <body class="body-case video-page-body">
+    <div class="case-header video-page-header">
+      <div class="btn btn-large" onclick="window.location.href='./index.html'">
+        <img src="icns/arrow-left.svg">
+      </div>
+      <div class="btn btn-large" onclick="window.open('https://drive.google.com/file/d/1xHJryMdsmioFay20EzBZMsBdah8leiih/view?usp=sharing', '_blank')">
+        <img src="icns/cv.svg">
+        <p class="body-large text-white">CV</p>
+      </div>
+      <div class="btn btn-large" onclick="window.open('https://t.me/kolya01101110', '_blank')"> 
+        <img src="icns/tg.svg">
+        <p class="body-large text-white">TG</p>
+      </div>
+    </div>
+    <div class="case-container">
+      <div class="case-block">
+        <div class="video">
+          <div class="video-player" data-video-player>
+            <video src="me.mp4" preload="metadata"></video>
+            <button class="video-play-toggle" type="button" data-video-play aria-label="Play video">
+              <span class="sr-only">Play</span>
+            </button>
+            <label class="video-volume">
+              <span class="sr-only">Volume</span>
+              <input type="range" min="0" max="1" step="0.05" value="1" data-video-volume aria-label="Video volume">
+            </label>
+            <div class="video-controls">
+              <div class="video-progress" data-video-progress aria-label="Video timeline" role="slider" tabindex="0">
+                <div class="video-progress__buffer" data-video-buffer></div>
+                <div class="video-progress__bar" data-video-progress-bar></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script>
+      const caseNavigation = document.querySelector('.case-navigation');
+      const triggerPoint = 400;
+
+      if (caseNavigation) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > triggerPoint) {
+            caseNavigation.classList.add('active');
+          } else {
+            caseNavigation.classList.remove('active');
+          }
+        });
+
+        const sections = document.querySelectorAll('.case-block[id]');
+        const navLinks = document.querySelectorAll('.case-navigation a');
+
+        const observerOptions = {
+          root: null,
+          rootMargin: '-20% 0px -60% 0px',
+          threshold: [0, 0.25, 0.5, 0.75, 1]
+        };
+
+        let activeSection = null;
+
+        const observer = new IntersectionObserver((entries) => {
+          let maxRatio = 0;
+          let mostVisibleSection = null;
+
+          entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+              maxRatio = entry.intersectionRatio;
+              mostVisibleSection = entry.target;
+            }
+          });
+
+          if (mostVisibleSection && mostVisibleSection !== activeSection) {
+            activeSection = mostVisibleSection;
+            const id = mostVisibleSection.getAttribute('id');
+            
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        }, observerOptions);
+
+        sections.forEach(section => {
+          observer.observe(section);
+        });
+      }
+
+      const initVideoPlayers = () => {
+        const players = document.querySelectorAll('[data-video-player]');
+
+        players.forEach((player) => {
+          const video = player.querySelector('video');
+          const playToggle = player.querySelector('[data-video-play]');
+          const progress = player.querySelector('[data-video-progress]');
+          const progressBar = player.querySelector('[data-video-progress-bar]');
+          const bufferBar = player.querySelector('[data-video-buffer]');
+          const volumeInput = player.querySelector('[data-video-volume]');
+
+          if (!video || !playToggle || !progress || !progressBar || !bufferBar || !volumeInput) {
+            return;
+          }
+
+          progress.setAttribute('aria-valuemin', '0');
+          progress.setAttribute('aria-valuemax', '100');
+          progress.setAttribute('aria-valuenow', '0');
+          progress.setAttribute('aria-valuetext', '0% played');
+
+          const updatePlayState = () => {
+            player.classList.toggle('is-playing', !video.paused);
+            const isPlaying = !video.paused;
+            playToggle.setAttribute('aria-label', isPlaying ? 'Pause video' : 'Play video');
+          };
+
+          const togglePlay = () => {
+            if (video.paused) {
+              video.play();
+            } else {
+              video.pause();
+            }
+          };
+
+          const updateProgress = () => {
+            if (!video.duration) return;
+            const percentage = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = `${percentage}%`;
+            progress.setAttribute('aria-valuenow', String(Math.round(percentage)));
+            progress.setAttribute('aria-valuetext', `${Math.round(percentage)}% played`);
+          };
+
+          const updateBuffer = () => {
+            if (!video.duration || !video.buffered.length) return;
+            const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+            const percentage = (bufferedEnd / video.duration) * 100;
+            bufferBar.style.width = `${percentage}%`;
+          };
+
+          const seek = (clientX) => {
+            if (!video.duration) return;
+            const rect = progress.getBoundingClientRect();
+            const ratio = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1);
+            video.currentTime = ratio * video.duration;
+          };
+
+          const handlePointer = (clientX) => {
+            seek(clientX);
+          };
+
+          let isScrubbing = false;
+          const onMouseMove = (event) => {
+            if (!isScrubbing) return;
+            handlePointer(event.clientX);
+          };
+          const stopScrub = () => {
+            isScrubbing = false;
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', stopScrub);
+          };
+
+          progress.addEventListener('mousedown', (event) => {
+            isScrubbing = true;
+            handlePointer(event.clientX);
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', stopScrub);
+          });
+
+          progress.addEventListener('click', (event) => {
+            handlePointer(event.clientX);
+          });
+
+          progress.addEventListener('touchstart', (event) => {
+            if (!event.touches.length) return;
+            handlePointer(event.touches[0].clientX);
+            event.preventDefault();
+          }, { passive: false });
+
+          progress.addEventListener('touchmove', (event) => {
+            if (!event.touches.length) return;
+            handlePointer(event.touches[0].clientX);
+            event.preventDefault();
+          }, { passive: false });
+
+          progress.addEventListener('keydown', (event) => {
+            if (!video.duration) return;
+            const step = event.key === 'ArrowLeft' || event.key === 'ArrowRight' ? 5 : 0;
+            if (!step) return;
+            event.preventDefault();
+            const direction = event.key === 'ArrowRight' ? 1 : -1;
+            const newTime = Math.min(Math.max(video.currentTime + direction * step, 0), video.duration);
+            video.currentTime = newTime;
+            updateProgress();
+          });
+
+          playToggle.addEventListener('click', togglePlay);
+          video.addEventListener('click', togglePlay);
+          video.addEventListener('play', updatePlayState);
+          video.addEventListener('pause', updatePlayState);
+          video.addEventListener('timeupdate', updateProgress);
+          video.addEventListener('progress', updateBuffer);
+          video.addEventListener('loadedmetadata', () => {
+            updateProgress();
+            updateBuffer();
+          });
+          video.addEventListener('ended', () => {
+            video.currentTime = 0;
+            video.pause();
+          });
+
+          volumeInput.addEventListener('input', (event) => {
+            const value = Number(event.target.value);
+            video.volume = value;
+            video.muted = value === 0;
+          });
+          volumeInput.value = String(video.volume);
+
+          updatePlayState();
+        });
+      };
+
+      initVideoPlayers();
+    </script>
+  </body>
+</html>
