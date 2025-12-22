@@ -9,8 +9,110 @@
     <title>Portfolio</title>
   </head>
   <body>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <div class="container">
       <section class="hero main-padding">
+        <div class="h-pic">
+          <div class="h-pic-content">
+            <!--
+            <div class="h-pic-1">
+              <img src="h-pic/pic1.1.png" class="h-pic-1-png">
+              <img src="h-pic/pic1.2.svg" class="h-pic-1-svg pic1-2">
+              <img src="h-pic/pic1.6.svg" class="h-pic-1-svg pic1-6">
+              <img src="h-pic/pic1.7.svg" class="h-pic-1-svg pic1-7">
+              <img src="h-pic/pic1.8.svg" class="h-pic-1-svg pic1-8">
+              <img src="h-pic/pic1.9.svg" class="h-pic-1-svg pic1-9">
+              <img src="h-pic/pic1.10.svg" class="h-pic-1-svg pic1-10">
+              <svg width="926" height="590" viewBox="0 0 926 590" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="pic1-blob1" d="M740.406 102.912C750.17 161.495 723.974 360.567 693.534 412.915C664.514 462.818 506.896 568.507 451.917 583.662C342.624 613.495 270.621 489.67 228.015 411.808C174.977 314.401 160.44 243.274 230.599 149.535C295.118 63.0565 367.589 49.5369 466.557 24.7961C559.079 1.8849 717.201 -36.3094 740.406 102.912Z" fill="black"/>
+              </svg>
+              <svg width="926" height="590" viewBox="0 0 926 590" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="pic1-blob2" d="M741.001 281C750.765 339.583 729.44 429.153 699 481.5C669.98 531.404 514.978 549.426 459.999 564.581C350.706 594.414 235.107 597.862 192.501 520C139.463 422.593 164.842 217.739 235 124C299.519 37.5212 361.031 63.3219 459.999 38.5811C552.521 15.6699 717.796 141.779 741.001 281Z" fill="black"/>
+              </svg>
+              <script>
+                gsap.registerPlugin(MorphSVGPlugin);
+                gsap.to(".pic1-2", {
+                  duration: 2,
+                  rotate: -15,
+                  yoyo: true,
+                  repeat: -1,
+                  ease: "power1.in",
+                });
+                gsap.to(".pic1-3",  {
+                  duration: 2,
+                  y: 10,
+                  yoyo: true,
+                  repeat: -1,
+                  ease: "power1.in",
+                });
+                gsap.to(".pic1-4",  {
+                  duration: 3,
+                  y: 10,
+                  yoyo: true,
+                  repeat: -1,
+                  ease: "power1.in",
+                });
+                gsap.to(".pic1-5",  {
+                  duration: 4,
+                  y: -20,
+                  yoyo: true,
+                  repeat: -1,
+                  ease: "power1.in",
+                });
+                gsap.to(".pic1-6", {
+                  duration: 2,
+                  rotate: -20,
+                  yoyo: true,
+                  repeat: -1,
+                  ease: "power1.in",
+                });
+                gsap.to(".pic1-7", {
+                  duration: 2,
+                  rotate: 30,
+                  yoyo: true,
+                  repeat: -1,
+                  ease: "power1.in",
+                });
+                gsap.to(".pic1-8", {
+                  duration: 3,
+                  rotate: 30,
+                  yoyo: true,
+                  repeat: -1,
+                  skewX: 20,
+                  ease: "power1.in",
+                });
+                gsap.to(".pic1-9", {
+                  duration: 3,
+                  rotate: 30,
+                  yoyo: true,
+                  repeat: -1,
+                  skewX: 20,
+                  ease: "power1.in",
+                });
+                gsap.to(".pic1-10", {
+                  duration: 3,
+                  rotate: -30,
+                  yoyo: true,
+                  repeat: -1,
+                  skewX: 20,
+                  ease: "power1.in",
+                });
+                gsap.to(".pic1-blob1", {
+                  morphSVG: ".pic1-blob2",
+                  duration: 15,
+                  repeat: 5,
+                  ease: "line",
+                  yoyo: true,
+                });
+              </script>
+            </div>
+            -->
+            <div class="h-pic-2"></div>
+            <div class="h-pic-3"></div>
+          </div>
+        </div>
         <img src="other/logo.svg">
         <div class="nav-buttons">
           <div class="btn btn-large" onclick="window.open('https://drive.google.com/file/d/1xHJryMdsmioFay20EzBZMsBdah8leiih/view?usp=sharing', '_blank')"> 
@@ -22,13 +124,50 @@
             <p class="body-large text-white">TG</p>
           </div>
         </div>
-        <h1>
-          Я&nbsp;Николай Грачев – продуктовый дизайнер. <span class="text-green">Прокачиваю интерфейс, метрики и&nbsp;опыт пользователя.</span> Делаю продукты удобнее и&nbsp;ярче, чем&nbsp;у&nbsp;конкурентов.
-        </h1>
-        <div class="loom" onclick="window.location.href='./video.html'">
-          <img src="other/play.svg">
+        <div class="hero-container-text">
+          <h1 class="hero-text">
+            Я&nbsp;Николай
+          </h1>
+          <h1 class="hero-text">
+            Грачев,
+          </h1>
+          <h1 class="hero-text">
+            продуктовый
+          </h1>
+          <h1 class="hero-text">
+            дизайнер
+          </h1>
+          <h1 class="hero-text">
+            с
+          </h1>
+          <h1 class="hero-text">
+            5-летним
+          </h1>
+          <h1 class="hero-text">
+            опытом
+          </h1>
+          <h1 class="hero-text">
+            в B2B и SaaS
+          </h1>
+          <h1 class="hero-text">
+            →
+          </h1>
+          <h1 class="hero-text">
+            <span class="text-green">Прокачиваю&nbsp;UI,</span>
+          </h1>
+          <h1 class="hero-text">
+            <span class="text-green">метрики</span>
+          </h1>
+          <h1 class="hero-text">
+            <span class="text-green">и&nbsp;опыт</span>
+          </h1>
+          <h1 class="hero-text">
+            <span class="text-green">и&nbsp;пользователя</span>
+          </h1>
         </div>
-        </a>
+        <p class="body-large">
+          Разбираю весь сценарий пользователя. Работаю с метриками, воронками и гипотезами. Делаю бенчмаркинг и внимательно изучаю конкурентов. Смотрю на фидбек, аналитику и иттеративно улучшаю продукт.
+        </p>
       </section>
       <section class="works main-padding">
         <div>
@@ -71,27 +210,6 @@
           </div>
           <div class="works-pic" onclick="window.location.href='./case-2.html'">
             <img src="other/cover_2.avif">
-          </div>  
-        </div>
-        <div>
-          <div class="works-text">
-            <div class="works-caption">
-              <h2>
-                Концепт лендинга <span class="text-green">для&nbsp;криптокошелька</span>
-              </h2>
-            </div>
-            <div class="btn btn-regular works-btn" onclick="window.open('https://nickolay-grachev.github.io/yuno/', '_blank')">
-              <p class="body-regular text-white">Смотреть сайт</p>
-            </div>
-            <div class="btn btn-small works-btn-2" onclick="window.open('https://nickolay-grachev.github.io/yuno/', '_blank')">
-              <img src="icns/arrow-right.svg">
-            </div>
-            <div class="works-dot">
-              <img src="other/dot.svg">
-            </div>
-          </div>
-          <div class="works-pic" onclick="window.open('https://nickolay-grachev.github.io/yuno/', '_blank')">
-            <img src="other/cover_3.avif">
           </div>  
         </div>
         <div>
@@ -160,6 +278,29 @@
             <img src="other/cover_7.avif">
           </div>  
         </div>
+        <!--
+        <div>
+          <div class="works-text">
+            <div class="works-caption">
+              <h2>
+                Концепт лендинга <span class="text-green">для&nbsp;криптокошелька</span>
+              </h2>
+            </div>
+            <div class="btn btn-regular works-btn" onclick="window.open('https://nickolay-grachev.github.io/yuno/', '_blank')">
+              <p class="body-regular text-white">Смотреть сайт</p>
+            </div>
+            <div class="btn btn-small works-btn-2" onclick="window.open('https://nickolay-grachev.github.io/yuno/', '_blank')">
+              <img src="icns/arrow-right.svg">
+            </div>
+            <div class="works-dot">
+              <img src="other/dot.svg">
+            </div>
+          </div>
+          <div class="works-pic" onclick="window.open('https://nickolay-grachev.github.io/yuno/', '_blank')">
+            <img src="other/cover_3.avif">
+          </div>  
+        </div>
+        -->
       </section>
       <section class="footer main-padding">
         <div class="footer-buttons">
