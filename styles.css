@@ -14,6 +14,13 @@ html {
     font-style: normal;
     font-display: block;
 }
+@font-face {
+    font-family: 'TT Interphases Pro Mono Trl';
+    src: url('fonts/TT\ Interphases\ Pro\ Mono\ Trial\ Bold.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: block;
+}
 
 @font-face {
     font-family: 'TT Interphases Pro Trl Variable';
@@ -124,6 +131,21 @@ h3 {
     line-height: 1.2;
     font-weight: 300;
 }
+h4 {
+    margin: 0;
+    font-family: "TT Interphases Pro Mono Trl";
+    font-size: 24px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    font-weight: 300;
+}
+.body-extra-large {
+    font-family: "TT Interphases Pro Trl Variable";
+    font-size: 32px;
+    letter-spacing: 0.25px;
+    line-height: 1.6;
+    font-weight: 400;
+}
 .body-large {
     font-family: "TT Interphases Pro Trl Variable";
     font-size: 20px;
@@ -151,6 +173,10 @@ h3 {
     letter-spacing: 0px;
     line-height: 1.5;
     font-weight: 400;
+}
+.bold {
+    font-family: "TT Interphases Pro Mono Trl";
+    font-weight: 500;
 }
 .btn {
     display: flex;
@@ -214,6 +240,13 @@ h3 {
     padding: 20px;
     box-sizing: border-box;
 }
+.highlight {
+    background: #F4F3E4;
+    padding: 6px 10px;
+    line-height: 1.5; 
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
 
 
 /*hero*/
@@ -461,16 +494,26 @@ h3 {
 }
 .case-container {
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
     align-self: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 120px;
 }
 .case-block {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
+    max-width: 800px;
+}
+.case-block-large {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
 }
 .case-block-cards {
     display: grid;
@@ -478,6 +521,13 @@ h3 {
     grid-template-rows: repeat(2, 1fr);
     gap: 4px;
     margin-top: 8px;
+}
+.case-block-cards-hero {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 4px;
+    margin-top: 28px;
 }
 .case-pic {
     width: 100%;
@@ -677,9 +727,22 @@ h3 {
     height: 140px;
     overflow: hidden;
 }
+.case-card-hero {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr auto;
+    padding: 20px;
+    height: 240px;
+    overflow: hidden;
+    gap: 8px;
+}
 .card-text {
     grid-column: 1 / 3;
     grid-row: 1;
+}
+.case-card-hero > .card-text {
+    grid-column: 1 / 3;
+    grid-row: 2;
 }
 .case-card > img {
     width: 12px;
@@ -689,6 +752,14 @@ h3 {
     grid-column: 2;
     grid-row: 2;
 }
+.case-card-hero > img {
+    width: 12px;
+    height: 12px;
+    align-self: end;
+    justify-self: end;
+    grid-column: 2;
+    grid-row: 3;
+}
 .card-special-text {
     font-size: 20px;
     line-height: 1.2;
@@ -697,6 +768,10 @@ h3 {
     grid-column: 1;
     grid-row: 2;
     align-self: end;
+}
+.case-card-hero > .card-special-text {
+    grid-column: 1;
+    grid-row: 3;
 }
 
 .case-card-large {
@@ -759,7 +834,7 @@ h3 {
 }
 .case-footer {
     display: grid;
-    grid-template-columns: auto auto auto 1fr;
+    grid-template-columns: auto 1fr auto auto;
     justify-items: end;
     gap: 8px;
     margin-top: 160px;
