@@ -247,6 +247,9 @@ h4 {
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
+  .text-center {
+    text-align: center;
+  }
 
 
 /*hero*/
