@@ -124,6 +124,15 @@ a:hover {
     text-decoration: underline;
     color: blue;
 }
+.copy-email.copied {
+    color: var(--black-900);
+    cursor: default;
+    text-decoration: none;
+}
+.copy-email.copied:hover {
+    color: var(--black-900);
+    text-decoration: none;
+}
 h1 {
     margin: 0;
     font-family: "Arial Narrow";

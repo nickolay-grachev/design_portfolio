@@ -7,6 +7,37 @@
     <link rel="icon" type="image/svg+xml" href="./other/logo.svg">
     <script src="https://t.contentsquare.net/uxa/26d087a979984.js"></script>
     <title>Portfolio</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const emailLinks = document.querySelectorAll('.copy-email');
+        
+        emailLinks.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const email = this.getAttribute('data-email');
+            const originalText = this.textContent;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(email).then(function() {
+              // Change text to "✓ Copied"
+              this.textContent = '✓ Copied';
+              
+              // Add copied class for styling
+              this.classList.add('copied');
+              
+              // Remove copied class and revert text after 2 seconds
+              setTimeout(function() {
+                this.textContent = originalText;
+                this.classList.remove('copied');
+              }.bind(this), 2000);
+            }.bind(this)).catch(function(err) {
+              console.error('Failed to copy email:', err);
+            });
+          });
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="container">
