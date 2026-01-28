@@ -980,7 +980,7 @@ h4 {
     letter-spacing: -0.3px;;
   }  
   h2 {
-    font-size: 40px;
+    font-size: 36px;
     letter-spacing: -0.3px;;
   }
   h3 {
@@ -1075,16 +1075,22 @@ h4 {
     grid-row: 2;
     width: 100%;
   }
+  .case-card-2 {
+    padding: 16px;
+  }
   .case-card-hero {
     padding: 16px;
  }
+ .case-2-cjm > div {
+    margin-top: -20px;
+}
 }
 @media (max-width: 460px) {
    h1 {
     font-size: 40px;
    }
    h2 {
-    font-size: 40px;
+    font-size: 32px;
    }
     .hero-text {
     font-size: 32px;
