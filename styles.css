@@ -100,12 +100,9 @@ p {
     margin: 0;
 }
 a {
-    font-family: "Arial Narrow Italic";
     text-decoration: none;
-    color: var(--black-900);
 }
 a:hover {
-    color: var(--blue);
     cursor: pointer;
 }
 .link {
@@ -121,6 +118,23 @@ a:hover {
     color: blue;
 }
 .link:hover {
+    text-decoration: underline;
+    color: blue;
+}
+.link-italic {
+    display: inline-block;
+    position: relative;
+    padding: 10px 12px;
+    margin: -10px -12px;
+    font-family: "Arial Narrow Italic";
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: blue;
+    cursor: pointer;
+}
+.link-italic:hover {
     text-decoration: underline;
     color: blue;
 }
@@ -287,6 +301,7 @@ h4 {
     white-space: nowrap;
   }
 
+  
 
 /*hero*/
 .hero {
@@ -424,9 +439,67 @@ h4 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 32px;
+    gap: 16px;
     width: 100%;
 }
+.hero-btn{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:100px;
+  padding:18px 20px;
+  text-decoration:none;
+  user-select:none;
+  cursor:pointer;
+}
+.link-italic{
+  text-decoration:none;
+  text-underline-offset:6px;
+}
+.hero-btn:hover .link-italic{
+  text-decoration:none;
+}
+.hero-icns{
+  width:72px;
+  height:72px;
+  transition:transform 500ms cubic-bezier(0.2,0.9,0.2,1);
+  transform:translate3d(0,0,0);
+  transform-origin:center;
+  will-change:transform;
+}
+.hero-btn:hover .hero-icns{
+  transform:translate3d(0,-6px,0);
+}
+.hero-btn:active .hero-icns{
+  transform:translate3d(0,-6px,0) scale(0.94);
+  transition-duration:120ms;
+}
+.hero-btn.copied{
+  cursor:default;
+}
+.hero-btn.copied:hover .link-italic{
+  text-decoration:none;
+}
+.hero-btn.copied:hover .hero-icns{
+  transform:translate3d(0,0,0);
+}
+.cv-ic {
+    background-image: url(hero-icns/cv-ic.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.telegram-ic {
+    background-image: url(hero-icns/telegram-ic.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.email-ic {
+    background-image: url(hero-icns/email-ic.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 
 /*works*/
 .works {
@@ -529,6 +602,11 @@ h4 {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr auto auto auto;
+    gap: 24px;
+}
+.case-header-main {
+    display: flex;
+    flex-direction: row;
     gap: 24px;
 }
 .case-container {

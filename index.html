@@ -10,25 +10,31 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const emailLinks = document.querySelectorAll('.copy-email');
-        
+      
         emailLinks.forEach(function(link) {
           link.addEventListener('click', function(e) {
             e.preventDefault();
-            
+      
+            // Если уже в состоянии copied — можно игнорить клики
+            if (this.classList.contains('copied')) return;
+      
             const email = this.getAttribute('data-email');
-            const originalText = this.textContent;
-            
-            // Copy to clipboard
+      
+            // 1) было: const originalText = this.textContent;
+            const labelEl = this.querySelector('.hero-btn__label');
+            const originalText = labelEl ? labelEl.textContent : this.textContent;
+      
             navigator.clipboard.writeText(email).then(function() {
-              // Change text to "✓ Copied"
-              this.textContent = '✓ Copied';
-              
-              // Add copied class for styling
+              // 2) было: this.textContent = '✓ Copied';
+              if (labelEl) labelEl.textContent = '✓ Copied';
+              else this.textContent = '✓ Copied';
+      
               this.classList.add('copied');
-              
-              // Remove copied class and revert text after 2 seconds
+      
               setTimeout(function() {
-                this.textContent = originalText;
+                if (labelEl) labelEl.textContent = originalText;
+                else this.textContent = originalText;
+      
                 this.classList.remove('copied');
               }.bind(this), 2000);
             }.bind(this)).catch(function(err) {
@@ -37,7 +43,7 @@
           });
         });
       });
-    </script>
+    </script>      
   </head>
   <body>
     <div class="container">
@@ -52,9 +58,18 @@
           </h1>
         </div>
         <div class="hero-links">
-          <a class="link" href="https://drive.google.com/file/d/1xHJryMdsmioFay20EzBZMsBdah8leiih/view?usp=sharing">CV</a>
-          <a class="link" href="https://t.me/kolya01101110">Telegram</a>
-          <a class="body-regular link copy-email" href="#" data-email="nickolay_grachev@icloud.com">Email</a>
+          <a class="hero-btn" href="https://drive.google.com/file/d/1xHJryMdsmioFay20EzBZMsBdah8leiih/view?usp=sharing">
+            <div class="hero-icns cv-ic"></div>
+            <span class="link-italic">CV</span>
+          </a>
+          <a class="hero-btn" href="https://t.me/kolya01101110">
+            <div class="hero-icns telegram-ic"></div>
+            <span class="link-italic">TELEGRAM</span>
+          </a>
+          <a class="hero-btn copy-email" href="#" data-email="nickolay_grachev@icloud.com">
+            <div class="hero-icns email-ic hero-btn__icon"></div>
+            <span class="link-italic hero-btn__label">EMAIL</span>
+          </a>
         </div>
       </section>
       <section class="works">
@@ -89,7 +104,7 @@
             Сейчас ищу классный продукт с&nbsp;сильной командой.<span class="text-grey"> Мне важно брать ответственность за&nbsp;решения, влиять на&nbsp;проект и&nbsp;создавать ценность через свою работу</span>
           </h1>
         </div>
-        <div class="hero-links">
+        <div class="case-header-main">
           <a class="body-regular link" href="https://drive.google.com/file/d/1xHJryMdsmioFay20EzBZMsBdah8leiih/view?usp=sharing">CV</a>
           <a class="body-regular link" href="https://t.me/kolya01101110">Telegram</a>
           <a class="body-regular link copy-email" href="#" data-email="nickolay_grachev@icloud.com">Email</a>
