@@ -499,6 +499,58 @@ h4 {
     background-repeat: no-repeat;
     background-size: contain;
 }
+.hint-text {
+    color: blue;
+    position: relative;
+    border-bottom: 1px dashed currentColor;
+    cursor: pointer;
+}
+.tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(16px);
+    bottom: calc(50% - 4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .25s cubic-bezier(.2,.8,.2,1);
+    white-space: nowrap;
+}
+.hint-text:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+.tooltip > img {
+    display: block;
+    border-radius: 16px;
+}
+.tooltip-1 {
+    transform: scale(.6);
+    transform-origin: top center;
+    margin-bottom: -24px;
+}
+.tooltip-2 {
+    transform: scale(.6);
+    transform-origin: top center;
+    margin-bottom: -120px;
+    margin-left: 168px;
+}
+.tooltip-3 {
+    transform: scale(.6);
+    transform-origin: top center;
+    margin-bottom: -114px;
+    margin-left: 160px;
+}
+.tooltip-4 {
+    transform: scale(.6);
+    transform-origin: top center;
+    margin-bottom: -154px;
+    margin-right: 160px;
+}
+.tooltip-5 {
+    transform: scale(.6);
+    transform-origin: top center;
+    margin-bottom: -180px;
+}
 
 
 /*works*/
@@ -986,6 +1038,17 @@ h4 {
   }
   .footer {
     min-height: fit-content;
+  }
+  .hint-text {
+    border-bottom: none;
+    cursor: default;
+    color: #000;
+  }
+  .hint-text .tooltip {
+    display: none;
+  }
+  .case-card-2 {
+    height: 300px;
   }
 
   /* cases */
