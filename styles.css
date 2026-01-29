@@ -485,17 +485,17 @@ h4 {
   transform:translate3d(0,0,0);
 }
 .cv-ic {
-    background-image: url(hero-icns/cv-ic.png);
+    background-image: url(hero-icns/cv-ic.avif);
     background-repeat: no-repeat;
     background-size: contain;
 }
 .telegram-ic {
-    background-image: url(hero-icns/telegram-ic.png);
+    background-image: url(hero-icns/telegram-ic.avif);
     background-repeat: no-repeat;
     background-size: contain;
 }
 .email-ic {
-    background-image: url(hero-icns/email-ic.png);
+    background-image: url(hero-icns/email-ic.avif);
     background-repeat: no-repeat;
     background-size: contain;
 }
