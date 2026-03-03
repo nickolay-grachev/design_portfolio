@@ -672,9 +672,6 @@ h4 {
     align-items: center;
     gap: 120px;
 }
-.case-container-large {
-    
-}
 .case-block {
     display: flex;
     flex-direction: column;
